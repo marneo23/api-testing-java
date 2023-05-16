@@ -1,5 +1,8 @@
+package HeaderTests;
+
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.example.BaseClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,7 +11,7 @@ import java.io.IOException;
 
 import static org.testng.Assert.*;
 
-public class TestGetOK extends BaseClass{
+public class TestGetOK extends BaseClass {
 
 
     @BeforeMethod
@@ -24,7 +27,7 @@ public class TestGetOK extends BaseClass{
 
     @Test
     public void baseUrlReturns200() throws IOException {
-        HttpGet get = new HttpGet(BASE_ENDPOINT); // initialize action to perform
+        HttpGet get = new HttpGet(BaseClass.BASE_ENDPOINT); // initialize action to perform
         response = client.execute(get);
         int actualStatus = response.getStatusLine().getStatusCode();
         assertEquals(actualStatus, 200);
@@ -32,7 +35,7 @@ public class TestGetOK extends BaseClass{
 
     @Test
     public void rateLimitReturns200() throws IOException {
-        HttpGet get = new HttpGet(BASE_ENDPOINT + "/rate_limit");
+        HttpGet get = new HttpGet(BaseClass.BASE_ENDPOINT + "/rate_limit");
         response = client.execute(get);
         int actualStatus = response.getStatusLine().getStatusCode();
         assertEquals(actualStatus, 200);
@@ -40,7 +43,7 @@ public class TestGetOK extends BaseClass{
 
     @Test
     public void thirdOpenConnection() throws IOException {
-        HttpGet get = new HttpGet(BASE_ENDPOINT);
+        HttpGet get = new HttpGet(BaseClass.BASE_ENDPOINT);
         response = client.execute(get);
         int actualStatus = response.getStatusLine().getStatusCode();
         assertEquals(actualStatus, 200);

@@ -1,7 +1,10 @@
+package HeaderTests;
+
 import org.apache.http.Header;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.example.BaseClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,7 +13,7 @@ import java.io.IOException;
 import static org.example.ResponseUtils.getHeader;
 import static org.testng.Assert.assertEquals;
 
-public class TestResponseHeaders extends BaseClass{
+public class TestResponseHeaders extends BaseClass {
 
     @BeforeMethod
     public void setUp(){
@@ -25,7 +28,7 @@ public class TestResponseHeaders extends BaseClass{
 
     @Test
     public void GetResponseHeaders() throws IOException {
-        HttpGet get = new HttpGet(BASE_ENDPOINT);
+        HttpGet get = new HttpGet(BaseClass.BASE_ENDPOINT);
         response = client.execute(get);
 
         //getContentType() will get content type & charset
@@ -41,7 +44,7 @@ public class TestResponseHeaders extends BaseClass{
 
     @Test
     public void serverIsGithub() throws IOException {
-        HttpGet get = new HttpGet(BASE_ENDPOINT);
+        HttpGet get = new HttpGet(BaseClass.BASE_ENDPOINT);
         response = client.execute(get);
 
         String headerValue = getHeader(response, "Server");

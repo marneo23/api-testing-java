@@ -2,6 +2,7 @@ package org.example;
 
 import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +32,10 @@ public class ResponseUtils {
 
     }
 
+
+    public static Object getValueFor(JSONObject jsonObject, String key) {
+        return jsonObject.get(key);
+    }
 
 
 

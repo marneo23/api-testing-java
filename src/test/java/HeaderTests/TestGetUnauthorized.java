@@ -1,5 +1,8 @@
+package HeaderTests;
+
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.example.BaseClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -9,7 +12,7 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
-public class TestGetUnauthorized extends BaseClass{
+public class TestGetUnauthorized extends BaseClass {
 
 
     @BeforeMethod
@@ -35,7 +38,7 @@ public class TestGetUnauthorized extends BaseClass{
 
     @Test (dataProvider = "endpoints")
     public void getWithoutPermissionReturns401(String endpoint) throws IOException {
-        HttpGet get = new HttpGet(BASE_ENDPOINT + endpoint);
+        HttpGet get = new HttpGet(BaseClass.BASE_ENDPOINT + endpoint);
         response = client.execute(get);
         int actualStatus = response.getStatusLine().getStatusCode();
         assertEquals(actualStatus, 401);
