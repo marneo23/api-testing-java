@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static org.testng.Assert.assertEquals;
 
-public class TestGetNotFound extends BaseClass {
+public class TestGetResponseMessage extends BaseClass {
 
     @BeforeMethod
     public void setUp(){

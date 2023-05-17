@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-import static org.example.ResponseUtils.getHeader;
+import static org.example.utils.ResponseUtils.getHeader;
 import static org.testng.Assert.assertEquals;
 
 public class TestResponseHeaders extends BaseClass {
